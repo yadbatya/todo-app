@@ -1,0 +1,31 @@
+<div ng-controller="toDosCtrl" ng-init="toDo()">
+    <h1>todos</h1>
+    <div>
+        <form ng-submit="addItem()">
+            <input id="checkAll" ng-show="toDos.items" type="checkbox" ng-model="allChecked" ng-checked="checker()" ng-click="checkAll()"/>
+            <input id="newToDo" placeholder="what needs to be done?" ng-model="newToDoText">
+        </form>
+        <div class="toDos">
+            <div ng-repeat="todo in toDos.items | filter:getFilter()">
+                <div id="ui" ng-show="!todo.editing" ng-mouseover="mouseOver=true" ng-mouseleave="mouseOver=false">
+                    <input type="checkbox" ng-checked="todo.done" ng-click="checkboxPressed(todo)">
+                    <label class="done-{{todo.done}}" ng-dblclick="edit(todo)">{{todo.data}}</label>
+                    <input type="submit" value="X" ng-click="remove(todo)" ng-show="mouseOver">
+                </div>
+                <form ng-submit="doneEditing(todo)" ng-show='todo.editing'>
+                    <input class="edit" ng-model="todo.data">
+                </form>
+            </div>
+
+        </div>
+    </div>
+    <div>
+        <p>{{remain()}}</p>
+        <div ng-show="remain()">
+            <input type="submit" value="All" ng-click="changeFilter(possFilt.All)">
+            <input type="submit" value="Active" id="Active" ng-click="changeFilter(possFilt.Act)">
+            <input type="submit" value="Completed" id="Completed" ng-click="changeFilter(possFilt.Comp)">
+        </div>
+        <p><button ng-click="deleteDone()" ng-show="toDos.dones">Clear completed ({{toDos.dones}})</button></p>
+    </div>
+</div>
