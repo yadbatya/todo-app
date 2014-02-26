@@ -1,0 +1,12 @@
+.done-true {
+    text-decoration: line-through;
+}
+
+#allChecked {
+    color: #880000;
+    text-shadow: 10pt;
+}
+
+#notChecked {
+    color: blue;
+}
