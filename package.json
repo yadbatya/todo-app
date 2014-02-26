@@ -1,7 +1,0 @@
-{
-    "dependencies": {
-      "yad-batya-mini-express": "1.0.0"
-    }
-    "name": "yad-batya-todo-app",
-    "version": "1.0.0"
-}
