@@ -20,7 +20,8 @@
     },
     "homepage": "https://github.com/yadbatya/todo-app",
     "dependencies": {
-        "mini-express": "1.0.3",
+        "mini-express": "yadbatya/miniExpress",
         "node-uuid": "1.4.1"
     }
+    
 }
